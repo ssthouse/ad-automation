@@ -19,7 +19,7 @@ export default {
     login() {
       const options = { scope: 'profile' }
       // eslint-disable-next-line
-      amazon.Login.authorize(options, 'https://valen.site/signup')
+      amazon.Login.authorize(options, 'https://www.valen.site/signup')
     },
     logOut() {
       // eslint-disable-next-line
