@@ -10,7 +10,6 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -40,7 +39,17 @@ module.exports = {
     // https://vue-loader.vuejs.org/en/options.html#cachebusting
     cacheBusting: true,
 
-    cssSourceMap: true
+    cssSourceMap: true,
+    proxyTable: {
+      // proxy all requests starting with /api to jsonplaceholder
+      '/automation': {
+        target: 'http://localhost:8080', // <-- Spring app running here
+        changeOrigin: true,
+        pathRewrite: {
+          '^/automation': ''
+        }
+      }
+    }
   },
 
   build: {
