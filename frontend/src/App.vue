@@ -1,13 +1,18 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <login-with-amazon></login-with-amazon>
   </div>
 </template>
 
 <script>
+import LoginWithAmazon from './components/LoginWithAmazon'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: { LoginWithAmazon },
+  data() {
+    return {}
+  }
 }
 </script>
 
