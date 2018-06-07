@@ -4,14 +4,23 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.Map;
 
+import com.ssthouse.adautomation.account.bean.Customer;
+import com.ssthouse.adautomation.account.repository.CustomerRepository;
 import org.apache.http.client.fluent.Content;
 import org.apache.http.client.fluent.Request;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+@Controller
 public class LwaController {
+
+    @Autowired
+    CustomerRepository customerRepository;
 
     private static final String CLIENT_ID = "amzn1.application-oa2-client.145a35b2a67449a391547634050ffd6b";
     private static final String CLIENT_SECRET = "3ece764fb57718f9bdc647aef3640df8bef0fbba5712c6072eb0055e500caf2d";
@@ -26,6 +35,27 @@ public class LwaController {
             System.out.println("Get user profile fail!!!!!!!!!!!!");
         }
         return "redirect:/index.html";
+    }
+
+    @RequestMapping(value = "registerCustomer")
+    @ResponseBody
+    public String registerCustomer() {
+        testMongo();
+        return "ok";
+    }
+
+    private void testMongo() {
+        testCreateUser();
+        testQueryCustomer();
+    }
+
+    private void testCreateUser() {
+        customerRepository.save(new Customer("testAmazonId1", "sst", "sstMail"));
+    }
+
+    private void testQueryCustomer() {
+        Customer customer = customerRepository.findByEmail("sstMail");
+        System.out.println(customer.toString());
     }
 
     private void getUserProfile(String accessToken) throws IOException {
