@@ -25,6 +25,7 @@
 /.nb-gradle/
 ### Maven template
 target/
+src/main/resources/static
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
