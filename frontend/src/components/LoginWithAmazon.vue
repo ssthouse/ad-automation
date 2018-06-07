@@ -17,7 +17,13 @@ export default {
   },
   methods: {
     login() {
-      const options = { scope: 'profile' }
+      const options = {
+        scope: 'cpc_advertising:campaign_management',
+        client_id:
+          'amzn1.application-oa2-client.145a35b2a67449a391547634050ffd6b',
+        redirect_uri: 'https://www.valen.site/signup',
+        response_type: 'code'
+      }
       // eslint-disable-next-line
       amazon.Login.authorize(options, 'https://www.valen.site/signup')
     },
