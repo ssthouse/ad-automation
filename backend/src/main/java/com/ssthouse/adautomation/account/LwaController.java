@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.Map;
 
+import lombok.extern.slf4j.Slf4j;
+
 import com.ssthouse.adautomation.account.bean.Customer;
 import com.ssthouse.adautomation.account.repository.CustomerRepository;
 import org.apache.http.client.fluent.Content;
@@ -17,6 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@Slf4j
 public class LwaController {
 
     @Autowired
@@ -41,6 +44,7 @@ public class LwaController {
     @ResponseBody
     public String registerCustomer() {
         testMongo();
+        log.info("successfully register a Customer!");
         return "ok";
     }
 
