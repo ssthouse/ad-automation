@@ -17,8 +17,11 @@ export default {
   },
   methods: {
     login() {
+      // eslint-disable-next-line
+      const adScope = 'cpc_advertising:campaign_management'
+      const testProfileScope = 'profile'
       const options = {
-        scope: 'cpc_advertising:campaign_management',
+        scope: testProfileScope,
         client_id:
           'amzn1.application-oa2-client.145a35b2a67449a391547634050ffd6b',
         redirect_uri: 'https://www.valen.site/signup',
