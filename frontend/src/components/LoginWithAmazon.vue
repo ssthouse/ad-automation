@@ -3,7 +3,6 @@
     <a href="#" id="LoginWithAmazon" @click="login">
       <img border="0" alt="Login with Amazon" src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png" width="156" height="32" />
     </a>
-    <a id="Logout" @click="logOut">Logout</a>
   </div>
 </template>
 

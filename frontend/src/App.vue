@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <login-with-amazon></login-with-amazon>
+    <router-view></router-view>
   </div>
 </template>
 
