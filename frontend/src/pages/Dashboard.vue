@@ -20,7 +20,23 @@ export default {
       setTimeout(() => {
         this.$Progress.finish()
       }, 2000)
+    },
+    fetchCustomerInfo() {
+      this.$Progress.start()
+      this.$http
+        .get('/customerInfo/testAmazonId1')
+        .then(userInfo => {
+          console.log(userInfo)
+          this.$Progress.finish()
+        })
+        .catch(error => {
+          console.log(error)
+          this.$Progress.fail()
+        })
     }
+  },
+  created() {
+    this.fetchCustomerInfo()
   }
 }
 </script>
