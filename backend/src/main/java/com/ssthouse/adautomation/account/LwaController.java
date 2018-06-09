@@ -27,14 +27,18 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 public class LwaController {
 
-    @Autowired
-    CustomerRepository customerRepository;
+    final CustomerRepository customerRepository;
 
-    @Autowired
-    TokenBeanRepository tokenBeanRepository;
+    final TokenBeanRepository tokenBeanRepository;
 
     private static final String CLIENT_ID = "amzn1.application-oa2-client.145a35b2a67449a391547634050ffd6b";
     private static final String CLIENT_SECRET = "3ece764fb57718f9bdc647aef3640df8bef0fbba5712c6072eb0055e500caf2d";
+
+    @Autowired
+    public LwaController(CustomerRepository customerRepository, TokenBeanRepository tokenBeanRepository) {
+        this.customerRepository = customerRepository;
+        this.tokenBeanRepository = tokenBeanRepository;
+    }
 
     @RequestMapping(value = "signup")
     public void signup(@RequestParam(name = "access_token") String accessToken, HttpServletResponse response) throws IOException {
