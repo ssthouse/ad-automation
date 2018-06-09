@@ -3,12 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import HTTP from './plugins/http'
 import VueProgressBar from 'vue-progressbar'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.config.productionTip = false
-Vue.use(ElementUI, {size: 'middle'})
+Vue.use(ElementUI, { size: 'middle' })
+Vue.prototype.$http = HTTP
 
 Vue.use(VueProgressBar, {
   color: '#409eff',
