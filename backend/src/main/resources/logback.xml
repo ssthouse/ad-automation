@@ -1,7 +1,7 @@
 <configuration scan="false">
     <property name="logPattern" value="%-4relative [%thread] %-5level %logger{35} - %msg%n"/>
     <property name="logEncoding" value="UTF-8"/>
-    <property name="logDirectory" value="/home/ssthouse/ad-automation"/>
+    <property name="logDirectory" value="../ad-automation-log"/>
     <property name="file_base_name" value="app"/>
     <property name="archive" value="archive"/>
     <timestamp key="current_date" datePattern="yyyy-MM-dd"/>
