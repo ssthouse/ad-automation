@@ -1,23 +1,26 @@
 <template>
-  <div class="hello">
-    <a id="Logout" @click="logOut">Logout</a>
+  <div id="download-panel">
+    <el-row>
+      <download-task></download-task>
+    </el-row>
+    <el-row>
+      download task detail
+    </el-row>
   </div>
 </template>
 
 <script>
+import DownloadTask from './DownloadTask'
+
 export default {
   name: 'Download',
+  components: { 'download-task': DownloadTask },
   data() {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
   },
-  methods: {
-    logOut() {
-      // eslint-disable-next-line
-      amazon.Login.logout()
-    }
-  }
+  methods: {}
 }
 </script>
 
