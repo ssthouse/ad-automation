@@ -10,7 +10,7 @@
         </el-aside>
         <el-container>
           <el-main id="dashboard-main">
-            <router-view></router-view>
+            <router-view id="dashboard-content" :baseUrl="baseUrl"></router-view>
           </el-main>
         </el-container>
       </el-container>
@@ -26,7 +26,8 @@ export default {
   components: { 'side-menu': SideMenu },
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      baseUrl: '/dashboard'
     }
   },
   methods: {
@@ -79,6 +80,10 @@ body > .el-container {
 
 #dashboard-main {
   padding: 0;
+}
+
+#dashboard-content {
+  height: 100%;
 }
 
 #dashboard-container {

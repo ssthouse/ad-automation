@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'DownloadTask',
+  name: 'DownloadTaskList',
   data() {
     return {
       msg: 'Welcome to Your Vue.js App'

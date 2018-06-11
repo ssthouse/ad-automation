@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Homepage from '@/pages/Homepage'
 import Dashboard from '@/pages/Dashboard'
 import Download from '@/components/dashboard/download/Download'
+import DownloadTaskList from '@/components/dashboard/download/DownloadTaskList'
+import ExecuteTaskList from '@/components/dashboard/download/ExecuteTaskList'
 
 Vue.use(Router)
 
@@ -20,7 +22,17 @@ export default new Router({
       children: [
         {
           path: 'download',
-          component: Download
+          component: Download,
+          children: [
+            {
+              path: 'taskList',
+              component: DownloadTaskList
+            },
+            {
+              path: 'executeList',
+              component: ExecuteTaskList
+            }
+          ]
         }
       ]
     }
