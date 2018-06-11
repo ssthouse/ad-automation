@@ -5,11 +5,11 @@
       <el-header>Header</el-header>
 
       <el-container>
-        <el-aside width="200px">
+        <el-aside width="auto">
           <side-menu id="side-menu" baseUrl="/dashboard"></side-menu>
         </el-aside>
         <el-container>
-          <el-main>
+          <el-main id="dashboard-main">
             <router-view></router-view>
           </el-main>
         </el-container>
@@ -66,13 +66,6 @@ export default {
   line-height: 60px;
 }
 
-.el-aside {
-  background-color: #d3dce6;
-  color: #333;
-  text-align: center;
-  line-height: 200px;
-}
-
 .el-main {
   background-color: #e9eef3;
   color: #333;
@@ -84,13 +77,8 @@ body > .el-container {
   margin-bottom: 40px;
 }
 
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-  line-height: 260px;
-}
-
-.el-container:nth-child(7) .el-aside {
-  line-height: 320px;
+#dashboard-main {
+  padding: 0;
 }
 
 #dashboard-container {

@@ -1,7 +1,7 @@
 <template>
   <div class="download-task-panel">
-    <div v-for="task in this.$store.state.downloadTaskList" :key="task.taskId">
-      {{task.toString()}}
+    <div v-for="(task, index) in this.$store.state.downloadTaskList" :key="index">
+      <span>{{task.toString()}}</span>
     </div>
   </div>
 </template>
