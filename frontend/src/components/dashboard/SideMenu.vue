@@ -1,5 +1,5 @@
 <template>
-  <el-menu default-active="2" class="side-menu" @open="handleOpen" @close="handleClose" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+  <el-menu :router="true" default-active="2" class="side-menu" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
     <el-submenu index="1">
       <template slot="title">
         <i class="el-icon-location"></i>
@@ -18,9 +18,10 @@
         <el-menu-item index="1-4-1">选项1</el-menu-item>
       </el-submenu>
     </el-submenu>
-    <el-menu-item index="2">
+
+    <el-menu-item :index="baseUrl + '/download'">
       <i class="el-icon-menu"></i>
-      <span slot="title">导航二</span>
+      <span slot="title">Download</span>
     </el-menu-item>
     <el-menu-item index="3" disabled>
       <i class="el-icon-document"></i>
@@ -36,6 +37,7 @@
 <script>
 export default {
   name: 'SideMenu',
+  props: ['baseUrl'],
   data() {
     return {
       msg: 'Welcome to Your Vue.js App'

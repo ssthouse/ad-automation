@@ -6,10 +6,12 @@
 
       <el-container>
         <el-aside width="200px">
-          <side-menu id="side-menu"></side-menu>
+          <side-menu id="side-menu" baseUrl="/dashboard"></side-menu>
         </el-aside>
         <el-container>
-          <el-main>Main</el-main>
+          <el-main>
+            <router-view></router-view>
+          </el-main>
         </el-container>
       </el-container>
     </el-container>
@@ -17,7 +19,7 @@
 </template>
 
 <script>
-import SideMenu from '../components/SideMenu'
+import SideMenu from '../components/dashboard/SideMenu'
 
 export default {
   name: 'dashboard',
