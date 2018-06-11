@@ -12,6 +12,7 @@
     "build_prj": "./build_prj.sh"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "element-ui": "^2.4.0",
     "vue": "^2.5.2",
     "vue-progressbar": "^0.7.5",
