@@ -1,7 +1,8 @@
 import axios from 'axios'
 
+const baseURL = process.env.ROOT_API
 const HTTP = axios.create({
-  baseURL: `http://localhost:8080`,
+  baseURL,
   headers: {
     Authorization: 'Bearer {token}'
   }
