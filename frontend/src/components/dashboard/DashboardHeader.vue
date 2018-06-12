@@ -1,5 +1,9 @@
 <template>
   <div id="dashboard-header">
+    <div id="homepage-logo">
+      <i class="el-icon-date" style="color: white; font-size: 24px;"></i>
+    </div>
+
     <div id="context-menu">
       <el-dropdown trigger="click" size="medium">
         <div id="menu-button">
@@ -7,11 +11,7 @@
           <i class="el-icon-caret-bottom"></i>
         </div>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>黄金糕</el-dropdown-item>
-          <el-dropdown-item>狮子头</el-dropdown-item>
-          <el-dropdown-item>螺蛳粉</el-dropdown-item>
-          <el-dropdown-item>双皮奶</el-dropdown-item>
-          <el-dropdown-item>蚵仔煎</el-dropdown-item>
+          <el-dropdown-item @click="logOut">登出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -44,7 +44,15 @@ export default {
   padding: 0 16px 0 16px;
   display: flex;
   position: relative;
-  background-color: #eee;
+
+  #homepage-logo {
+    position: absolute;
+    width: 64px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #468eff;
+  }
 
   #context-menu {
     height: 100%;
@@ -52,17 +60,18 @@ export default {
     position: absolute;
     right: 0;
     top: 0;
-  }
 
-  #menu-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+    #menu-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      cursor: pointer;
+      padding-right: 16px;
 
-    .username-label {
-      font-size: 1.2rem;
-      color: grey;
+      .username-label {
+        font-size: 1.2rem;
+      }
     }
   }
 }

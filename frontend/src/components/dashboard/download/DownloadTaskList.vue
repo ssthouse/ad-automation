@@ -14,11 +14,17 @@
           </el-form>
         </template>
       </el-table-column>
-      <el-table-column label="商品 ID" prop="startDate">
+      <el-table-column label="开始时间" prop="startDate">
       </el-table-column>
-      <el-table-column label="商品名称" prop="endDate">
+      <el-table-column label="结束时间" prop="endDate">
       </el-table-column>
-      <el-table-column label="描述" prop="description">
+      <el-table-column label="运行周期" prop="runTime">
+      </el-table-column>
+      <el-table-column label="操作">
+        <template slot-scope="scope">
+          <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+          <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+        </template>
       </el-table-column>
     </el-table>
   </div>
@@ -35,13 +41,22 @@ export default {
   computed: {
     downloadTaskList() {
       return this.$store.state.downloadTaskList.map(downloadTask => {
-        downloadTask.startDate = downloadTask.startDate.toString()
-        downloadTask.endDate = downloadTask.endDate.toString()
-        return downloadTask
+        return {
+          startDate: downloadTask.startDate.toString(),
+          endDate: downloadTask.endDate.toString(),
+          runTime: downloadTask.runTime + '天'
+        }
       })
     }
   },
-  methods: {}
+  methods: {
+    handleEdit(index, downloadTask) {
+      console.log('edit task: ' + downloadTask.toString)
+    },
+    handleDelete(index, downloadTask) {
+      console.log('delete task: ' + downloadTask.toString)
+    }
+  }
 }
 </script>
 

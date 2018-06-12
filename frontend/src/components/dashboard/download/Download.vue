@@ -13,7 +13,7 @@
       </el-menu>
     </el-aside>
 
-    <el-main>
+    <el-main id="download-content">
       <router-view></router-view>
     </el-main>
   </el-container>
@@ -37,5 +37,9 @@ export default {
 .side-menu {
   height: 100%;
   text-align: left;
+}
+
+#download-content {
+  padding: 0;
 }
 </style>
