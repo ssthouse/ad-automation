@@ -36,5 +36,6 @@ export default {
 <style scoped>
 .side-menu {
   height: 100%;
+  text-align: left;
 }
 </style>
