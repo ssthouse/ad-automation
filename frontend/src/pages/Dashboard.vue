@@ -2,7 +2,9 @@
   <div class="dashboard">
     <el-container id="dashboard-container">
 
-      <el-header>Header</el-header>
+      <el-header id="header" style="height: 54px;">
+        <dashboard-header></dashboard-header>
+      </el-header>
 
       <el-container>
         <el-aside width="auto">
@@ -20,10 +22,11 @@
 
 <script>
 import SideMenu from '../components/dashboard/SideMenu'
+import DashboardHeader from '../components/dashboard/DashboardHeader'
 
 export default {
   name: 'dashboard',
-  components: { 'side-menu': SideMenu },
+  components: { 'side-menu': SideMenu, 'dashboard-header': DashboardHeader },
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
@@ -70,6 +73,11 @@ export default {
 .el-main {
   background-color: #e9eef3;
   color: #333;
+}
+
+#header {
+  padding: 0;
+  height: 54px;
 }
 
 body > .el-container {
