@@ -1,6 +1,10 @@
 <template>
   <div class="download-task-panel">
 
+    <edit-task-dialog :taskId="editTaskId" :showDialog="showEditDialog" @closeDialog="showDialog = false"></edit-task-dialog>
+
+    <el-button class="add-task-btn" type="danger" icon="el-icon-plus" circle @click="addTask"></el-button>
+
     <el-table :data="downloadTaskList" style="width: 100%">
       <el-table-column type="expand">
         <template slot-scope="props">
@@ -31,11 +35,15 @@
 </template>
 
 <script>
+import EditTaskDialog from './EditTaskDialog'
 export default {
   name: 'DownloadTaskList',
+  components: { 'edit-task-dialog': EditTaskDialog },
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      showEditDialog: false,
+      editTaskId: null
     }
   },
   computed: {
@@ -44,26 +52,43 @@ export default {
         return {
           startDate: downloadTask.startDate.toString(),
           endDate: downloadTask.endDate.toString(),
-          runTime: downloadTask.runTime + '天'
+          runTime: downloadTask.runTime + '天',
+          taskId: downloadTask.taskId
         }
       })
     }
   },
   methods: {
     handleEdit(index, downloadTask) {
-      console.log('edit task: ' + downloadTask.toString)
+      this.editTaskId = downloadTask.taskId
+      this.showDialog = true
     },
     handleDelete(index, downloadTask) {
-      console.log('delete task: ' + downloadTask.toString)
+      console.log('delete task: ' + downloadTask.toString())
+    },
+    addTask() {
+      console.log('add task')
     }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="less">
 .download-task-panel {
-  height: auto;
+  height: 100%;
   line-height: auto;
+  position: relative;
+
+  .add-task-btn {
+    position: absolute;
+    z-index: 100;
+    bottom: 32px;
+    right: 32px;
+    width: 56px;
+    height: 56px;
+    font-size: 28px;
+    font-weight: bold;
+  }
 }
 </style>

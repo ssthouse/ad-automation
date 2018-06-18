@@ -5,7 +5,7 @@ export default class DownloadTask {
     this.runTime = runTime || ''
     this.description = description || ''
     this.creater = creater || ''
-    this.taskId = taskId || ''
+    this.taskId = taskId || 'test-id-' + Date.now()
   }
 
   toString() {
