@@ -1,7 +1,7 @@
 <template>
   <div class="download-task-panel">
-
-    <edit-task-dialog :taskId="editTaskId" :showDialog="showEditDialog" @closeDialog="showDialog = false"></edit-task-dialog>
+    <add-task-dialog :showDialog="showAddDialog" @closeDialog="showAddDialog = false"></add-task-dialog>
+    <edit-task-dialog :taskId="editTaskId" :showDialog="showEditDialog" @closeDialog="showEditDialog = false"></edit-task-dialog>
 
     <el-button class="add-task-btn" type="danger" icon="el-icon-plus" circle @click="addTask"></el-button>
 
@@ -36,14 +36,19 @@
 
 <script>
 import EditTaskDialog from './EditTaskDialog'
+import AddTaskDialog from './AddTaskDialog'
 export default {
   name: 'DownloadTaskList',
-  components: { 'edit-task-dialog': EditTaskDialog },
+  components: {
+    'edit-task-dialog': EditTaskDialog,
+    'add-task-dialog': AddTaskDialog
+  },
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
       showEditDialog: false,
-      editTaskId: null
+      editTaskId: null,
+      showAddDialog: false
     }
   },
   computed: {
@@ -68,6 +73,7 @@ export default {
     },
     addTask() {
       console.log('add task')
+      this.showAddDialog = true
     }
   }
 }
